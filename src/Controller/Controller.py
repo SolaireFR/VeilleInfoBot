@@ -1,18 +1,18 @@
-
-from ArticleList import ArticleList
 from newsapi import NewsApiClient
+from newsdataapi import NewsDataApiClient
 
 # API key authorization, Initialize the client with your API key
+newsdata_key = NewsDataApiClient(apikey='pub_14335257c88334563a6d6035196c3c7d8e917')
+newsapi_key = NewsApiClient("7f7dca4824124b3a8bfc499ee1ac427d")
 
-
-# News API
-response = get_api().news_api(category="technology,science",
-                        country="fr",
+response_newsapi = newsapi_key.news_api(category="technology,science",
                         language="fr,en")
 
-print("\nNOMBRE DE RESULTATS :", response["totalResults"], "\n")
+print("\nNOMBRE DE RESULTATS :", response_newsapi = newsapi_key.news_api(category="technology,science",
+["totalResults"], "\n")
 
-articleList = ArticleList(response)
+articleList = ArticleList(response_newsapi = newsapi_key.news_api(category="technology,science",
+)
 articleList.print_nb_articles(3)
 
 #########################

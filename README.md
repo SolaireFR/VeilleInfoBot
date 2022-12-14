@@ -5,6 +5,13 @@ Début : 08/12/2022
 
 ## NEWSAPI.ORG
 
+### CATEGORIES :
+- h
+- h
+- h
+- h
+- h
+
 ```python
 from newsapi import NewsApiClient
 
@@ -56,6 +63,13 @@ all_articles = newsapi.get_everything(q='technology',
 - 422 = Unprocessable entity
 - 429 = Too many requests
 - 500 = Internal server error
+
+### CATEGORIES :
+- h
+- h
+- h
+- h
+- h
 
 ```python
 from newsdataapi import NewsDataApiClient

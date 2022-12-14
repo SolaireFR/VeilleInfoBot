@@ -1,6 +1,6 @@
 from newsdataapi import NewsDataApiClient
 
-class Article:
+class News:
     def __init__(self, article):
         self.title = article["title"]
         self.link = article["link"]
@@ -32,8 +32,5 @@ class Article:
         
         elif len(self.content) < len(self.description) :
             self.content = self.description + " " + self.content
-            
-    def get_api():
-        return NewsDataApiClient(apikey='pub_14335257c88334563a6d6035196c3c7d8e917')
     
     

@@ -1,5 +1,5 @@
 from ArticleApi import ArticleApi
-from ArticleData import ArticleData
+from News import ArticleData
 
 
 class ArticleList:
