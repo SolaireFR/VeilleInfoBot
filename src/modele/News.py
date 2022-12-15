@@ -1,20 +1,17 @@
-from newsdataapi import NewsDataApiClient
 
 class News:
-    def __init__(self, article):
-        self.title = article["title"]
-        self.link = article["link"]
-        self.keywords = article["keywords"]
-        self.creator = article["creator"]
-        self.videoURL = article["video_url"]
-        self.description = article["description"]
-        self.content = article["content"]
-        self.pubDate = article["pubDate"]
-        self.imageURL = article["image_url"]
-        self.sourceID = article["source_id"]
-        self.country = article["country"]
-        self.category = article["category"]
-        self.language = article["language"]
+    number = 0
+
+    def __init__(self, title, author, description, link, image_url, content, pub_date):
+        self.id = News.number
+        News.number += 1
+        self.title = title
+        self.author = author
+        self.description = description
+        self.link = link
+        self.image_url = image_url
+        self.content = content
+        self.pub_date = pub_date
         self.initialise()
         
 
