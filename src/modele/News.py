@@ -1,10 +1,9 @@
-
 class News:
-    number = 0
+    max = 0
 
-    def __init__(self, title, author, description, link, image_url, content, pub_date):
-        self.id = News.number
-        News.number += 1
+    def __init__(self, number: -1, title: str, author: str, description: str,
+                 link: str, image_url: str, content: str, pub_date: str):
+        self.number = number
         self.title = title
         self.author = author
         self.description = description
@@ -13,21 +12,17 @@ class News:
         self.content = content
         self.pub_date = pub_date
         self.initialise()
-        
 
-    # Méthodes
+    # Methods
     def initialise(self):
-        if self.content == None and self.description != None :
-            self.content = self.description
-        
-        elif self.description == None and self.content != None :
-            max = 255
-            if max > len(self.content) :
-                max = len(self.content)
-                
-            self.description = self.content[0:max]
-        
-        elif len(self.content) < len(self.description) :
-            self.content = self.description + " " + self.content
-    
-    
+        # number
+        if self.number == -1:
+            self.number = News.max
+        News.max += 1
+
+        # Content and description
+        if self.description is None:
+            self.description = "Vide"
+        if self.content is None:
+            self.content = "Vide"
+
