@@ -1,9 +1,7 @@
 class News:
-    max = 0
-
-    def __init__(self, number: -1, title: str, author: str, description: str,
-                 link: str, image_url: str, content: str, pub_date: str):
-        self.number = number
+    def __init__(self, title, author, description,
+                 link, image_url, content, pub_date):
+        self.number = 0
         self.title = title
         self.author = author
         self.description = description
@@ -15,11 +13,6 @@ class News:
 
     # Methods
     def initialise(self):
-        # number
-        if self.number == -1:
-            self.number = News.max
-        News.max += 1
-
         # Content and description
         if self.description is None:
             self.description = "Vide"
