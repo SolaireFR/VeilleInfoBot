@@ -8,7 +8,7 @@ fenetre = Tk()
 fenetre.title("Veille Info Bot")
 
 # Définir un icone :
-fenetre.iconbitmap("res/news.ico")
+fenetre.iconbitmap("../../res/news.ico")
 
 # Personnaliser la couleur de l'arrière-plan de la fenêtre principale :
 fenetre.config(bg = "#ADD8E6")

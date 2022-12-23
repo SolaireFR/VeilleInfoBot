@@ -11,3 +11,7 @@ class NewsList:
         news.number = self.len
         self.articles.append(news)
         self.len += 1
+
+    def add_all(self, list_news: list):
+        for news in list_news:
+            self.append_news(news)

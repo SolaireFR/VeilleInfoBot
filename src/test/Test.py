@@ -1,10 +1,12 @@
 import unittest
+
+from src.controller.Controller import *
 from src.modele.GestionnaireCSV import *
 from src.modele.NewsList import NewsList
 from src.modele.Settings import Settings
 
 
-class TestArticle(unittest.TestCase):
+class Test(unittest.TestCase):
 
     def test_create_a_news(self):
         news_1 = News("title1", "author1", "description1", "link1", "image_url1", "content1", "pub_date1")
@@ -39,6 +41,9 @@ class TestArticle(unittest.TestCase):
         Settings.set_default()
         save_settings_into_csv()
 
+    def test_load_news_from_internet(self):
+        list_news:NewsList = load_news_from_internet()
+        self.assertTrue(list_news.articles.__len__() > 0)
 
 if __name__ == '__main__':
     unittest.main()

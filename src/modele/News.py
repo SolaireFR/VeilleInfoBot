@@ -19,3 +19,6 @@ class News:
         if self.content is None:
             self.content = "Vide"
 
+    def to_str(self) -> str:
+        return ""+self.title+" : "+self.pub_date+"\n"
+
