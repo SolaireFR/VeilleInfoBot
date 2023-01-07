@@ -1,4 +1,3 @@
-import newsapi
 from newsapi import NewsApiClient
 from newsdataapi import NewsDataApiClient
 from src.modele.News import News
@@ -9,21 +8,23 @@ from src.modele.Settings import Settings
 def load_news_from_internet() -> NewsList:
     news_list = NewsList()
 
-    newsapi_client = NewsApiClient(Settings.api_keys.get("NewsApi.org"))
-    all_articles_newsapi = newsapi_client.get_top_headlines(category='technology',
-                                                            language='fr')
+    newsapi_client = NewsApiClient(Settings.apiKeys.get("NewsApi.org"))
+    all_articles_newsapi = newsapi_client.get_everything(q="python OR technology OR science",
+                                                         language='fr')
     news_list.add_all(dict_newsapi_to_list_news(all_articles_newsapi))
 
-    newsdata_client = NewsDataApiClient(Settings.api_keys.get("NewsData.io"))
-    all_articles_newsdata = newsdata_client.news_api(language="fr", category="technology")
+    newsdata_client = NewsDataApiClient(Settings.apiKeys.get("NewsData.io"))
+    all_articles_newsdata = newsdata_client.news_api(category="technology,science",
+                                                     language="fr")
     news_list.add_all(dict_newsdata_to_list_news(all_articles_newsdata))
 
     return news_list
 
+
 def dict_newsapi_to_list_news(all_articles: dict) -> list:
     list_news = []
-    for news in all_articles.get("articles") :
-        list_news.append(News(news.get("title"),
+    for news in all_articles.get("articles"):
+        list_news.append(News("NA+"+news.get("title"),
                               news.get("author"),
                               news.get("description"),
                               news.get("url"),
@@ -32,10 +33,11 @@ def dict_newsapi_to_list_news(all_articles: dict) -> list:
                               news.get("publishedAt")))
     return list_news
 
+
 def dict_newsdata_to_list_news(all_articles: dict) -> list:
     list_news = []
-    for news in all_articles.get("results") :
-        list_news.append(News(news.get("title"),
+    for news in all_articles.get("results"):
+        list_news.append(News("ND+"+news.get("title"),
                               news.get("creator"),
                               news.get("description"),
                               news.get("link"),
@@ -43,6 +45,7 @@ def dict_newsdata_to_list_news(all_articles: dict) -> list:
                               news.get("content"),
                               news.get("pubDate")))
     return list_news
+
 
 def save_news_into_csv(news_list: list, path="../../res/NewsList.csv"):
     save_news_into_csv(news_list, path)

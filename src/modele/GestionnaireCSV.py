@@ -28,8 +28,8 @@ def load_news_from_csv(path="../../res/NewsList.csv") -> list:
 def save_settings_into_csv(path="../../res/Settings.csv"):
     with open(path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(Settings.key_words)
-        writer.writerow(Settings.api_keys)
+        writer.writerow(Settings.keyWords)
+        writer.writerow(Settings.apiKeys)
 
 
 def load_settings_from_csv(path="../../res/NewsList.csv") -> list:

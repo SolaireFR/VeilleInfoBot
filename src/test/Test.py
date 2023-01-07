@@ -23,8 +23,8 @@ class Test(unittest.TestCase):
 
     def test_set_default_settings(self):
         Settings.set_default()
-        self.assertEqual("technology", Settings.key_words[0])
-        self.assertEqual("7f7dca4824124b3a8bfc499ee1ac427d", Settings.api_keys.get("NewsApi.org"))
+        self.assertEqual("technology", Settings.keyWords[0])
+        self.assertEqual("7f7dca4824124b3a8bfc499ee1ac427d", Settings.apiKeys.get("NewsApi.org"))
 
     def test_create_news_csv_with_list(self):
         news_1 = News("title1", "author1", "description1", "link1", "image_url1", "content1", "pub_date1")
